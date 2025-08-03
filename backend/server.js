@@ -6,6 +6,7 @@ import rateLimiter from "./src/middleware/rateLimiter.js";
 import bodyParser from "body-parser";
 import path from "path";
 import connection from "./src/config/db.js";
+import limiter from "./src/middleware/rateLimiter.js";
 
 const app=express();
 
@@ -15,7 +16,11 @@ const PORT=process.env.PORT || 3000;
 const __dirname = path.resolve();
 
 //MIDDLEWARES
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
+app.use(limiter);
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(rateLimiter);

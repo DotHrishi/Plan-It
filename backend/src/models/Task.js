@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Tasks = mongoose.Schema(
+const Tasks = new mongoose.Schema(
     {
         title: {
             type: String,
