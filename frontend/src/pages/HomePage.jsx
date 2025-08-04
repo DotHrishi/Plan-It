@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(()=>{
     const fetchTasks = async () => {
       try{
-        const res = await api.get("/");
+        const res = await api.get("/tasks");
         if(res.status===200) {
           setTasks(res.data);
           console.log("Tasks fetched successfully!");
