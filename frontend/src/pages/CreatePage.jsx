@@ -19,7 +19,7 @@ const CreatePage = () => {
 
         setLoading(true);
         try{
-            await api.post("/tasks/create", {
+            await api.post("/create", {
                 title
             });
             toast.success("Task created successfully!");

@@ -16,7 +16,7 @@ const TaskCard = ({ task, setTasks }) => {
     e.preventDefault();
 
     try {
-      await api.delete(`/tasks/delete/${id}`);
+      await api.delete(`/delete/${id}`);
       setTasks((prev) => prev.filter((task) => task._id != id));
       toast.success("🎉 Task Completed!");
     } catch (error) {
